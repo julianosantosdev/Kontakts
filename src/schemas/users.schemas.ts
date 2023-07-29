@@ -16,7 +16,7 @@ const userRequestSchema = userSchema.omit({
   createdAt: true,
   updatedAt: true,
   deletedAt: true,
-});"19 99608-0304"
+});
 
 const userResponseSchema = userSchema.omit({ password: true });
 const usersListResponseSchema = z.array(userResponseSchema);
