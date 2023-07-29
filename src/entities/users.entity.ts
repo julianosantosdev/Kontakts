@@ -3,7 +3,9 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  OneToMany
+  OneToMany,
+  UpdateDateColumn,
+  DeleteDateColumn,
 } from 'typeorm';
 import Contact from './contacts.entity';
 
@@ -21,11 +23,17 @@ class User {
   @Column({ type: 'varchar', length: 30 })
   password: string;
 
-  @Column({ type: 'varchar', length: 12, nullable: true })
+  @Column({ type: 'varchar', length: 20, nullable: true })
   phone: string | null | undefined;
 
   @CreateDateColumn({ type: 'date' })
   createdAt: Date | string;
+
+  @UpdateDateColumn({ type: 'date' })
+  updatedAt: Date | string;
+
+  @DeleteDateColumn({ type: 'date' })
+  deletedAt: Date | string;
 
   @OneToMany(() => Contact, (contact) => contact.user)
   contacts: Contact[];
