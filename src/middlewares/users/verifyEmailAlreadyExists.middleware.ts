@@ -4,23 +4,23 @@ import { User } from '../../entities';
 import AppDataSource from '../../data-source';
 import { AppError } from '../../errors';
 
-const verifyPhoneExistsMiddleware = async (
+const verifyEmailAlredyExistsMiddleware = async (
   request: Request,
   response: Response,
   nextFunction: NextFunction
 ): Promise<void> => {
-  const newUserPhone: string = request.body.phone;
+  const newUserEmail: string = request.body.email;
 
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
   const user: User | null = await userRepository.findOneBy({
-    phone: newUserPhone,
+    email: newUserEmail,
   });
 
-  if (user && newUserPhone === user.phone) {
-    throw new AppError('Phone number already exists', 409);
+  if (user && newUserEmail === user.email) {
+    throw new AppError('Email already exists', 409);
   }
 
   return nextFunction();
 };
 
-export default verifyPhoneExistsMiddleware;
+export default verifyEmailAlredyExistsMiddleware;
