@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*lock*
+.env
+.vscode
+.eslintrc.json
+.prettierrc.json
+README.md
