@@ -10,6 +10,8 @@ import verifyBodyRequestMiddleware from '../middlewares/verifyBodyRequest.middle
 import { userRequestSchema } from '../schemas/users.schemas';
 import verifyEmailAlredyExistsMiddleware from '../middlewares/users/verifyEmailAlreadyExists.middleware';
 import verifyPhoneAlreadyExistsMiddleware from '../middlewares/users/verifyPhoneAlreadyExists.middleware';
+import verifyTokenMiddleware from '../middlewares/users/verifyUserToken.middleware';
+import verifyUserPermissionMiddleware from '../middlewares/users/verifyUserPermissions.middleware';
 
 const usersRoute: Router = Router();
 
@@ -21,16 +23,24 @@ usersRoute.post(
   createUserController
 );
 
-usersRoute.get('', retrieveUsersController);
+usersRoute.get('', verifyTokenMiddleware, retrieveUsersController);
 
 usersRoute.patch(
   '/:id',
+  verifyTokenMiddleware,
   verifyUserIdMiddleware,
+  verifyUserPermissionMiddleware,
   verifyEmailAlredyExistsMiddleware,
   verifyPhoneAlreadyExistsMiddleware,
   updateUserController
 );
 
-usersRoute.delete('/:id', verifyUserIdMiddleware, deleteUserController);
+usersRoute.delete(
+  '/:id',
+  verifyTokenMiddleware,
+  verifyUserIdMiddleware,
+  verifyUserPermissionMiddleware,
+  deleteUserController
+);
 
 export default usersRoute;
