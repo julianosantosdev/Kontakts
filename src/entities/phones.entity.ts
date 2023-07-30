@@ -12,7 +12,7 @@ class Phone {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @Column({ type: 'varchar', length: 12, nullable: true })
+  @Column({ type: 'varchar', length: 20, nullable: true })
   phone: string | null | undefined;
 
   @CreateDateColumn({ type: 'date' })

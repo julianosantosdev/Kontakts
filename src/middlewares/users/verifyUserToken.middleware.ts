@@ -24,13 +24,7 @@ const verifyTokenMiddleware = (
     if (error) {
       throw new AppError(error.message, 401);
     }
-
-    console.log(decoded);
-
-    const admin: number = decoded.admin;
     const id: number = decoded.sub;
-
-    response.locals.admin = admin;
     response.locals.userId = id;
   });
 
