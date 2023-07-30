@@ -39,7 +39,7 @@ const contactRequestSchema = z.object({
     id: true,
     createdAt: true,
     updatedAt: true,
-    contactId: true,
+    contact: true,
   }),
 });
 
