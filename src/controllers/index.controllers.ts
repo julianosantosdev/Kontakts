@@ -3,7 +3,7 @@ import listContactsService from '../services/contacts/listContacts.service';
 import deleteContactService from '../services/contacts/deleteContact.service';
 import updateFullNameService from '../services/contacts/updateFullName.service';
 import {
-  TAddressUpdate,
+  TAddressUpdateRequest,
   TCreateAddressRequest,
   TFullNameRequest,
   TCreateUpdateEmailRequest,
@@ -25,7 +25,7 @@ export {
   listContactsService,
   deleteContactService,
   updateFullNameService,
-  TAddressUpdate,
+  TAddressUpdateRequest,
   TCreateAddressRequest,
   TFullNameRequest,
   TCreateUpdateEmailRequest,
@@ -37,5 +37,5 @@ export {
   deleteEmailService,
   updateEmailService,
   updatePhoneService,
-  deletePhoneService
+  deletePhoneService,
 };

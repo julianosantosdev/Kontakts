@@ -13,10 +13,17 @@ import {
   updateEmailController,
   updatePhoneController,
 } from '../controllers/contacts.controllers';
+import verifyContactExistsMiddleware from '../middlewares/contacts/verifyContactExists.middleware';
 import verifyTokenMiddleware from '../middlewares/users/verifyUserToken.middleware';
 import verifyBodyRequestMiddleware from '../middlewares/verifyBodyRequest.middleware';
-import { contactRequestSchema } from '../schemas/contacts.schemas';
-
+import {
+  addressUpdateSchema,
+  addressCreateSchema,
+  contactRequestSchema,
+  fullNameRequestSchema,
+  phoneCreateUpdateRequest,
+  emailCreateUpdateRequest,
+} from '../schemas/contacts.schemas';
 export {
   createNewAddressController,
   createContactController,
@@ -34,4 +41,10 @@ export {
   deletePhoneController,
   updateEmailController,
   updatePhoneController,
+  verifyContactExistsMiddleware,
+  phoneCreateUpdateRequest,
+  fullNameRequestSchema,
+  addressUpdateSchema,
+  addressCreateSchema,
+  emailCreateUpdateRequest,
 };

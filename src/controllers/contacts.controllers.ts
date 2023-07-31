@@ -56,7 +56,7 @@ const updateAddressController = async (
   response: Response
 ): Promise<Response> => {
   const addressId: number = Number(request.params.addressId);
-  const newAddressData: index.TAddressUpdate = request.body;
+  const newAddressData: index.TAddressUpdateRequest = request.body;
   const addressUpdated = await index.updateAddressService(
     addressId,
     newAddressData

@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import {
-  addressCreateUpdateSchema,
+  addressCreateSchema,
+  addressUpdateSchema,
   contactRequestSchema,
   createContactResponseSchema,
   emailCreateUpdateRequest,
@@ -15,8 +16,8 @@ type TCreateContactResponse = z.infer<typeof createContactResponseSchema>;
 
 type TFullNameRequest = z.infer<typeof fullNameRequestSchema>;
 
-type TCreateAddressRequest = z.infer<typeof addressCreateUpdateSchema>;
-type TAddressUpdate = DeepPartial<typeof addressCreateUpdateSchema>;
+type TCreateAddressRequest = z.infer<typeof addressCreateSchema>;
+type TAddressUpdateRequest = DeepPartial<typeof addressUpdateSchema>;
 
 type TEmail = z.infer<typeof emailSchema>;
 type TCreateUpdateEmailRequest = z.infer<typeof emailCreateUpdateRequest>;
@@ -28,7 +29,7 @@ export {
   TCreateContactResponse,
   TFullNameRequest,
   TCreateAddressRequest,
-  TAddressUpdate,
+  TAddressUpdateRequest,
   TEmail,
   TCreateUpdateEmailRequest,
   TCreateUpdatePhoneRequest,

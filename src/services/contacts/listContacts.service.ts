@@ -5,7 +5,7 @@ import { Contact } from '../../entities';
 const listContactsService = async () => {
   const contactsRepository: Repository<Contact> =
     AppDataSource.getRepository(Contact);
-  const realEsate: Array<Contact> = await contactsRepository.find({
+  const contacts: Array<Contact> = await contactsRepository.find({
     relations: {
       fullName: true,
       addresses: true,
@@ -14,7 +14,7 @@ const listContactsService = async () => {
     },
   });
 
-  return realEsate;
+  return contacts;
 };
 
 export default listContactsService;

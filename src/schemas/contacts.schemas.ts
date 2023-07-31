@@ -12,12 +12,14 @@ const addressSchema = z.object({
   contact: z.number(),
 });
 
-const addressCreateUpdateSchema = addressSchema.omit({
+const addressCreateSchema = addressSchema.omit({
   id: true,
   createdAt: true,
   updatedAt: true,
   contact: true,
 });
+
+const addressUpdateSchema = addressCreateSchema.partial();
 
 const phoneSchema = z.object({
   id: z.number(),
@@ -78,7 +80,8 @@ const fullNameRequestSchema = fullNameSchema.omit({
 
 export {
   addressSchema,
-  addressCreateUpdateSchema,
+  addressCreateSchema,
+  addressUpdateSchema,
   phoneSchema,
   phoneCreateUpdateRequest,
   emailSchema,
