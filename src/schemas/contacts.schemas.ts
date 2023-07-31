@@ -26,6 +26,8 @@ const phoneSchema = z.object({
   contact: z.number(),
 });
 
+const phoneCreateUpdateRequest = phoneSchema.pick({ phone: true });
+
 const emailSchema = z.object({
   id: z.number(),
   email: z.string().max(50),
@@ -78,6 +80,7 @@ export {
   addressSchema,
   addressCreateUpdateSchema,
   phoneSchema,
+  phoneCreateUpdateRequest,
   emailSchema,
   emailCreateUpdateRequest,
   fullNameSchema,

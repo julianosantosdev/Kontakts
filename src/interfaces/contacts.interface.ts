@@ -6,6 +6,7 @@ import {
   emailCreateUpdateRequest,
   emailSchema,
   fullNameRequestSchema,
+  phoneCreateUpdateRequest,
 } from '../schemas/contacts.schemas';
 import { DeepPartial } from 'typeorm';
 
@@ -20,6 +21,8 @@ type TAddressUpdate = DeepPartial<typeof addressCreateUpdateSchema>;
 type TEmail = z.infer<typeof emailSchema>;
 type TCreateUpdateEmailRequest = z.infer<typeof emailCreateUpdateRequest>;
 
+type TCreateUpdatePhoneRequest = z.infer<typeof phoneCreateUpdateRequest>;
+
 export {
   TContactRequest,
   TCreateContactResponse,
@@ -28,4 +31,5 @@ export {
   TAddressUpdate,
   TEmail,
   TCreateUpdateEmailRequest,
+  TCreateUpdatePhoneRequest,
 };

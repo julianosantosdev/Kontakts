@@ -13,8 +13,11 @@ import {
 } from './index.routes';
 import {
   createEmailController,
+  createPhoneController,
   deleteEmailController,
+  deletePhoneController,
   updateEmailController,
+  updatePhoneController,
 } from '../controllers/contacts.controllers';
 
 const contactRoute: Router = Router();
@@ -39,8 +42,8 @@ contactRoute.post('/:contactId/email', createEmailController);
 contactRoute.patch('/email/:emailId', updateEmailController);
 contactRoute.delete('/email/:emailId', deleteEmailController);
 
-contactRoute.post('/:contactId/phone');
-contactRoute.patch('/phone/:phoneId');
-contactRoute.delete('/phone/:phoneId');
+contactRoute.post('/:contactId/phone', createPhoneController);
+contactRoute.patch('/phone/:phoneId', updatePhoneController);
+contactRoute.delete('/phone/:phoneId', deletePhoneController);
 
 export default contactRoute;
