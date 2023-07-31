@@ -1,49 +1,30 @@
 import { Router } from 'express';
-import {
-  contactRequestSchema,
-  createNewAddressController,
-  createContactController,
-  deleteAddressController,
-  deleteContactController,
-  listContactsController,
-  updateAddressController,
-  updateFullNameController,
-  verifyBodyRequestMiddleware,
-  verifyTokenMiddleware,
-} from './index.routes';
-import {
-  createEmailController,
-  createPhoneController,
-  deleteEmailController,
-  deletePhoneController,
-  updateEmailController,
-  updatePhoneController,
-} from '../controllers/contacts.controllers';
+import * as index from './index.routes';
 
 const contactRoute: Router = Router();
 
 contactRoute.post(
   '',
-  verifyBodyRequestMiddleware(contactRequestSchema),
-  verifyTokenMiddleware,
-  createContactController
+  index.verifyBodyRequestMiddleware(index.contactRequestSchema),
+  index.verifyTokenMiddleware,
+  index.createContactController
 );
-contactRoute.get('', verifyTokenMiddleware, listContactsController);
+contactRoute.get('', index.verifyTokenMiddleware, index.listContactsController);
 
-contactRoute.delete('/:contactId', deleteContactController);
+contactRoute.delete('/:contactId', index.deleteContactController);
 
-contactRoute.patch('/fullname/:fnId', updateFullNameController);
+contactRoute.patch('/fullname/:fnId', index.updateFullNameController);
 
-contactRoute.post('/:contactId/address', createNewAddressController);
-contactRoute.patch('/address/:addressId', updateAddressController);
-contactRoute.delete('/address/:addressId', deleteAddressController);
+contactRoute.post('/:contactId/address', index.createNewAddressController);
+contactRoute.patch('/address/:addressId', index.updateAddressController);
+contactRoute.delete('/address/:addressId', index.deleteAddressController);
 
-contactRoute.post('/:contactId/email', createEmailController);
-contactRoute.patch('/email/:emailId', updateEmailController);
-contactRoute.delete('/email/:emailId', deleteEmailController);
+contactRoute.post('/:contactId/email', index.createEmailController);
+contactRoute.patch('/email/:emailId', index.updateEmailController);
+contactRoute.delete('/email/:emailId', index.deleteEmailController);
 
-contactRoute.post('/:contactId/phone', createPhoneController);
-contactRoute.patch('/phone/:phoneId', updatePhoneController);
-contactRoute.delete('/phone/:phoneId', deletePhoneController);
+contactRoute.post('/:contactId/phone', index.createPhoneController);
+contactRoute.patch('/phone/:phoneId', index.updatePhoneController);
+contactRoute.delete('/phone/:phoneId', index.deletePhoneController);
 
 export default contactRoute;

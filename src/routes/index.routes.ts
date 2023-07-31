@@ -6,6 +6,12 @@ import {
   updateAddressController,
   updateFullNameController,
   deleteAddressController,
+  createEmailController,
+  createPhoneController,
+  deleteEmailController,
+  deletePhoneController,
+  updateEmailController,
+  updatePhoneController,
 } from '../controllers/contacts.controllers';
 import verifyTokenMiddleware from '../middlewares/users/verifyUserToken.middleware';
 import verifyBodyRequestMiddleware from '../middlewares/verifyBodyRequest.middleware';
@@ -22,4 +28,10 @@ export {
   verifyBodyRequestMiddleware,
   contactRequestSchema,
   deleteAddressController,
+  createEmailController,
+  createPhoneController,
+  deleteEmailController,
+  deletePhoneController,
+  updateEmailController,
+  updatePhoneController,
 };
