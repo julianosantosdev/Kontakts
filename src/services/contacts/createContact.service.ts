@@ -6,23 +6,31 @@ import {
   TContactRequest,
   TCreateContactResponse,
 } from '../../interfaces/contacts.interface';
+import FullName from '../../entities/fullName.entity';
 
 const createContactService = async (
   contactData: TContactRequest,
   userId: number
 ): Promise<TCreateContactResponse> => {
-  const { address, phone, email, ...contactRestInfo } = contactData;
+  const { address, phone, email, fullName } = contactData;
 
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
   const user: User | null = await userRepository.findOneBy({
     id: userId,
   });
 
+  const fullNameRepository: Repository<FullName> =
+    AppDataSource.getRepository(FullName);
+  const newFullName: FullName = fullNameRepository.create({
+    fullName: fullName,
+  });
+  await fullNameRepository.save(newFullName);
+
   const contactRepository: Repository<Contact> =
     AppDataSource.getRepository(Contact);
   const newContact: Contact = contactRepository.create({
-    ...contactRestInfo,
     user: user!,
+    fullName: newFullName,
   });
   await contactRepository.save(newContact);
 
@@ -50,6 +58,7 @@ const createContactService = async (
 
   const contactCreated = {
     ...newContact,
+    fullName: newFullName,
     address: newAddress,
     phone: newPhone,
     email: newEmail,
@@ -57,6 +66,7 @@ const createContactService = async (
 
   const parsedContact: TCreateContactResponse =
     createContactResponseSchema.parse(contactCreated);
+  console.log(parsedContact);
 
   return parsedContact;
 };

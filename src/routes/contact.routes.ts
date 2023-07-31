@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import {
   createContactController,
+  deleteContactController,
   listContactsController,
+  updateContactController,
 } from '../controllers/contacts.controllers';
 import verifyTokenMiddleware from '../middlewares/users/verifyUserToken.middleware';
 import verifyBodyRequestMiddleware from '../middlewares/verifyBodyRequest.middleware';
@@ -16,5 +18,9 @@ contactRoute.post(
   createContactController
 );
 contactRoute.get('', verifyTokenMiddleware, listContactsController);
+
+contactRoute.patch('/:contactId', updateContactController);
+
+contactRoute.delete('/:contactId', deleteContactController);
 
 export default contactRoute;

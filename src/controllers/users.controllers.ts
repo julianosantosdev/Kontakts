@@ -41,8 +41,8 @@ const deleteUserController = async (
   response: Response
 ): Promise<Response> => {
   const userId: number = Number(request.params.id);
-  const userUpdatedData = await deleteUserService(userId);
-  return response.status(200).json(userUpdatedData);
+  const userToDelete = await deleteUserService(userId);
+  return response.status(204).json(userToDelete);
 };
 
 export {
