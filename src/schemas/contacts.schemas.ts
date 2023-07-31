@@ -12,18 +12,28 @@ const addressSchema = z.object({
   contact: z.number(),
 });
 
+const addressCreateUpdateSchema = addressSchema.omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+  contact: true,
+});
+
 const phoneSchema = z.object({
   id: z.number(),
   phone: z.string().max(20),
   createdAt: z.string(),
   contact: z.number(),
 });
+
 const emailSchema = z.object({
   id: z.number(),
   email: z.string().max(50),
   createdAt: z.string(),
   contact: z.number(),
 });
+
+const emailCreateUpdateRequest = emailSchema.pick({ email: true });
 
 const fullNameSchema = z.object({
   id: z.number(),
@@ -59,12 +69,20 @@ const createContactResponseSchema = contactSchema
   })
   .omit({ user: true });
 
+const fullNameRequestSchema = fullNameSchema.omit({
+  createdAt: true,
+  id: true,
+});
+
 export {
   addressSchema,
+  addressCreateUpdateSchema,
   phoneSchema,
   emailSchema,
+  emailCreateUpdateRequest,
   fullNameSchema,
   contactSchema,
   contactRequestSchema,
   createContactResponseSchema,
+  fullNameRequestSchema,
 };
