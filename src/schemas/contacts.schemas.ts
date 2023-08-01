@@ -47,8 +47,8 @@ const fullNameSchema = z.object({
 
 const contactSchema = z.object({
   id: z.number(),
-  fullName: z.number(),
   createdAt: z.string(),
+  fullName: z.number(),
   user: userSchema,
 });
 
@@ -73,6 +73,17 @@ const createContactResponseSchema = contactSchema
   })
   .omit({ user: true });
 
+const contactsListSchema = contactSchema
+  .extend({
+    fullName: fullNameSchema,
+    emails: emailSchema.omit({ contact: true }).array(),
+    phones: phoneSchema.omit({ contact: true }).array(),
+    addresses: addressSchema.omit({ contact: true }).array(),
+  })
+  .omit({ user: true })
+
+const contactsListResponseSchema = z.array(contactsListSchema);
+
 const fullNameRequestSchema = fullNameSchema.omit({
   createdAt: true,
   id: true,
@@ -90,5 +101,6 @@ export {
   contactSchema,
   contactRequestSchema,
   createContactResponseSchema,
+  contactsListResponseSchema,
   fullNameRequestSchema,
 };

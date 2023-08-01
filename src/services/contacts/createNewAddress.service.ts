@@ -7,9 +7,9 @@ const createNewAddressService = async (
   contactId: number,
   newAddressData: TCreateAddressRequest
 ): Promise<Address> => {
-  const userRepository: Repository<Contact> =
+  const contactRepository: Repository<Contact> =
     AppDataSource.getRepository(Contact);
-  const contact: Contact | null = await userRepository.findOneBy({
+  const contact: Contact | null = await contactRepository.findOneBy({
     id: contactId,
   });
 

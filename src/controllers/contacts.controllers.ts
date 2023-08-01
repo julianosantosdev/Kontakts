@@ -15,7 +15,8 @@ const listContactsController = async (
   request: Request,
   response: Response
 ): Promise<Response> => {
-  const list = await index.listContactsService();
+  const userId: number = Number(response.locals.userId)
+  const list = await index.listContactsService(userId);
   return response.status(200).json(list);
 };
 
