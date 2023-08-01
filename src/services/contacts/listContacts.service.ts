@@ -22,8 +22,6 @@ const listContactsService = async (
     })
     .getMany();
 
-  console.log(userContacts);
-
   const parsedContactsList: TContactsListResponse =
     contactsListResponseSchema.parse(userContacts);
 

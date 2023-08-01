@@ -14,6 +14,10 @@ const verifyContactFieldsPermissionMiddleware = async (
   const addressId: number = Number(request.params.addressId);
   const phoneId: number = Number(request.params.phoneId);
   const emailId: number = Number(request.params.emailId);
+  const error: AppError = new AppError(
+    'You do not have permissions to perform this action!',
+    403
+  );
 
   if (fullNameId) {
     const entityRepository: Repository<FullName> =
@@ -29,10 +33,8 @@ const verifyContactFieldsPermissionMiddleware = async (
       },
     });
 
-    console.log(entityObject?.contact);
-
     if (entityObject?.contact.user.id !== userIdFromRequest) {
-      throw new AppError('You do not have permissions to perform this action!');
+      throw error;
     }
   }
 
@@ -51,7 +53,7 @@ const verifyContactFieldsPermissionMiddleware = async (
     });
 
     if (entityObject?.contact.user.id !== userIdFromRequest) {
-      throw new AppError('You do not have permissions to perform this action!');
+      throw error;
     }
   }
 
@@ -70,7 +72,7 @@ const verifyContactFieldsPermissionMiddleware = async (
     });
 
     if (entityObject?.contact.id !== userIdFromRequest) {
-      throw new AppError('You do not have permissions to perform this action!');
+      throw error;
     }
   }
 
@@ -89,7 +91,7 @@ const verifyContactFieldsPermissionMiddleware = async (
     });
 
     if (entityObject?.contact.id !== userIdFromRequest) {
-      throw new AppError('You do not have permissions to perform this action!');
+      throw error;
     }
   }
 

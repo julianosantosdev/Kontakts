@@ -22,8 +22,6 @@ const verifyLoginUserMiddleware = async (
   response.locals.userHashPwd = String(user.password);
   response.locals.userId = Number(user.id);
 
-  console.log(response.locals.userHashPwd)
-
   return nextFunction();
 };
 
