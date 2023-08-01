@@ -7,7 +7,7 @@ contactRoute.post(
   '',
   index.verifyBodyRequestMiddleware(index.contactRequestSchema),
   index.verifyTokenMiddleware,
-  index.verifyContactExistsMiddleware,
+  // index.verifyContactExistsMiddleware,
   index.createContactController
 );
 contactRoute.get('', index.verifyTokenMiddleware, index.listContactsController);
@@ -18,6 +18,7 @@ contactRoute.patch(
   '/fullname/:fnId',
   index.verifyBodyRequestMiddleware(index.fullNameRequestSchema),
   index.verifyTokenMiddleware,
+  index.verifyContactFieldsPermissionMiddleware,
   index.verifyContactExistsMiddleware,
   index.updateFullNameController
 );
@@ -31,11 +32,13 @@ contactRoute.patch(
   '/address/:addressId',
   index.verifyBodyRequestMiddleware(index.addressUpdateSchema),
   index.verifyTokenMiddleware,
+  index.verifyContactFieldsPermissionMiddleware,
   index.updateAddressController
 );
 contactRoute.delete(
   '/address/:addressId',
   index.verifyTokenMiddleware,
+  index.verifyContactFieldsPermissionMiddleware,
   index.deleteAddressController
 );
 
@@ -48,11 +51,13 @@ contactRoute.patch(
   '/email/:emailId',
   index.verifyBodyRequestMiddleware(index.emailCreateUpdateRequest),
   index.verifyTokenMiddleware,
+  index.verifyContactFieldsPermissionMiddleware,
   index.updateEmailController
 );
 contactRoute.delete(
   '/email/:emailId',
   index.verifyTokenMiddleware,
+  index.verifyContactFieldsPermissionMiddleware,
   index.deleteEmailController
 );
 
@@ -66,11 +71,13 @@ contactRoute.patch(
   '/phone/:phoneId',
   index.verifyBodyRequestMiddleware(index.phoneCreateUpdateRequest),
   index.verifyTokenMiddleware,
+  index.verifyContactFieldsPermissionMiddleware,
   index.updatePhoneController
 );
 contactRoute.delete(
   '/phone/:phoneId',
   index.verifyTokenMiddleware,
+  index.verifyContactFieldsPermissionMiddleware,
   index.deletePhoneController
 );
 

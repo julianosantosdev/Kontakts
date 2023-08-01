@@ -2,7 +2,7 @@ import { Router } from 'express';
 import {
   createUserController,
   deleteUserController,
-  retrieveUsersController,
+  retrieveUserController,
   updateUserController,
 } from '../controllers/users.controllers';
 import verifyUserIdMiddleware from '../middlewares/users/verifyUserExistsById.middleware';
@@ -23,7 +23,7 @@ usersRoute.post(
   createUserController
 );
 
-usersRoute.get('', verifyTokenMiddleware, retrieveUsersController);
+usersRoute.get('', verifyTokenMiddleware, retrieveUserController);
 
 usersRoute.patch(
   '/:id',

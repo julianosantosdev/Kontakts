@@ -5,7 +5,6 @@ import {
   ManyToOne,
   OneToMany,
   OneToOne,
-  JoinColumn,
 } from 'typeorm';
 import User from './users.entity';
 import Email from './email.entity';
@@ -21,20 +20,21 @@ class Contact {
   @CreateDateColumn({ type: 'date' })
   createdAt: Date | string;
 
-  @OneToOne(() => FullName)
-  @JoinColumn()
+  @OneToOne(() => FullName, (fullName) => fullName.contact)
   fullName: FullName;
 
-  @OneToMany(() => Address, (address) => address.contact)
+  @OneToMany(() => Address, (address) => address.contact, {
+    onDelete: 'CASCADE',
+  })
   addresses: Address[];
 
-  @OneToMany(() => Email, (email) => email.contact)
+  @OneToMany(() => Email, (email) => email.contact, { onDelete: 'CASCADE' })
   emails: Email[];
 
-  @OneToMany(() => Phone, (phone) => phone.contact)
+  @OneToMany(() => Phone, (phone) => phone.contact, { onDelete: 'CASCADE' })
   phones: Phone[];
 
-  @ManyToOne(() => User, (user) => user.contacts)
+  @ManyToOne(() => User, (user) => user.contacts, { onDelete: 'CASCADE' })
   user: User;
 }
 

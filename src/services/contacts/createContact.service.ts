@@ -19,40 +19,40 @@ const createContactService = async (
     id: userId,
   });
 
-  const fullNameRepository: Repository<FullName> =
-    AppDataSource.getRepository(FullName);
-  const newFullName: FullName = fullNameRepository.create({
-    fullName: fullName,
-  });
-  await fullNameRepository.save(newFullName);
-
   const contactRepository: Repository<Contact> =
     AppDataSource.getRepository(Contact);
   const newContact: Contact = contactRepository.create({
     user: user!,
-    fullName: newFullName,
   });
   await contactRepository.save(newContact);
+
+  const fullNameRepository: Repository<FullName> =
+    AppDataSource.getRepository(FullName);
+  const newFullName: FullName = fullNameRepository.create({
+    fullName: fullName,
+    contact: newContact,
+  });
+  await fullNameRepository.save(newFullName);
 
   const addressRepository: Repository<Address> =
     AppDataSource.getRepository(Address);
   const newAddress: Address = addressRepository.create({
     ...address,
-    contact: newContact!,
+    contact: newContact,
   });
   await addressRepository.save(newAddress);
 
   const phoneRepository: Repository<Phone> = AppDataSource.getRepository(Phone);
   const newPhone: Phone = phoneRepository.create({
     phone: phone,
-    contact: newContact!,
+    contact: newContact,
   });
   await phoneRepository.save(newPhone);
 
   const emailRepository: Repository<Email> = AppDataSource.getRepository(Email);
   const newEmail: Email = emailRepository.create({
     email: email,
-    contact: newContact!,
+    contact: newContact,
   });
   await emailRepository.save(newEmail);
 
@@ -66,7 +66,6 @@ const createContactService = async (
 
   const parsedContact: TCreateContactResponse =
     createContactResponseSchema.parse(contactCreated);
-  console.log(parsedContact);
 
   return parsedContact;
 };

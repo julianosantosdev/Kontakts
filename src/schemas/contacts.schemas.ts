@@ -48,7 +48,7 @@ const fullNameSchema = z.object({
 const contactSchema = z.object({
   id: z.number(),
   createdAt: z.string(),
-  fullName: z.number(),
+  // fullName: z.number(),
   user: userSchema,
 });
 

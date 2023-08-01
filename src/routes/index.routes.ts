@@ -14,6 +14,8 @@ import {
   updatePhoneController,
 } from '../controllers/contacts.controllers';
 import verifyContactExistsMiddleware from '../middlewares/contacts/verifyContactExists.middleware';
+import verifyContactFieldsPermissionMiddleware from '../middlewares/contacts/verifyContactsPermissions.middleware';
+import verifyUserFullNamePermissionMiddleware from '../middlewares/contacts/verifyContactsPermissions.middleware';
 import verifyTokenMiddleware from '../middlewares/users/verifyUserToken.middleware';
 import verifyBodyRequestMiddleware from '../middlewares/verifyBodyRequest.middleware';
 import {
@@ -42,9 +44,11 @@ export {
   updateEmailController,
   updatePhoneController,
   verifyContactExistsMiddleware,
+  verifyUserFullNamePermissionMiddleware,
   phoneCreateUpdateRequest,
   fullNameRequestSchema,
   addressUpdateSchema,
   addressCreateSchema,
   emailCreateUpdateRequest,
+  verifyContactFieldsPermissionMiddleware,
 };

@@ -32,7 +32,7 @@ class Address {
   @UpdateDateColumn({ type: 'date' })
   updatedAt: Date | string;
 
-  @ManyToOne(() => Contact, (contact) => contact.addresses)
+  @ManyToOne(() => Contact, (contact) => contact.addresses, {onDelete: 'CASCADE'})
   contact: Contact;
 }
 

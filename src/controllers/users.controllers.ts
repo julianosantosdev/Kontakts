@@ -2,12 +2,12 @@ import { Request, Response } from 'express';
 import createUserService from '../services/users/createUser.service';
 import {
   TUserRequest,
+  TUserResponse,
   TUserUpdate,
-  TUsersListResponse,
 } from '../interfaces/users.interface';
-import retrieveUsersService from '../services/users/retrieveUsers.service';
 import updateUserService from '../services/users/updateUser.service';
 import deleteUserService from '../services/users/deleteUser.service';
+import retrieveUserService from '../services/users/retrieveUsers.service';
 
 const createUserController = async (
   request: Request,
@@ -18,12 +18,13 @@ const createUserController = async (
   return response.status(201).json(newUser);
 };
 
-const retrieveUsersController = async (
+const retrieveUserController = async (
   request: Request,
   response: Response
-): Promise<Response<TUsersListResponse>> => {
-  const usersList: TUsersListResponse = await retrieveUsersService();
-  return response.status(200).json(usersList);
+): Promise<Response<TUserResponse>> => {
+  const userId: number = Number(response.locals.userId);
+  const userData: TUserResponse = await retrieveUserService(userId);
+  return response.status(200).json(userData);
 };
 
 const updateUserController = async (
@@ -47,7 +48,7 @@ const deleteUserController = async (
 
 export {
   createUserController,
-  retrieveUsersController,
+  retrieveUserController,
   updateUserController,
   deleteUserController,
 };

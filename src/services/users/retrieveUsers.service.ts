@@ -1,16 +1,18 @@
 import { Repository } from 'typeorm';
 import AppDataSource from '../../data-source';
 import { User } from '../../entities';
-import { TUsersListResponse } from '../../interfaces/users.interface';
-import { usersListResponseSchema } from '../../schemas/users.schemas';
+import { TUserResponse } from '../../interfaces/users.interface';
+import { userResponseSchema } from '../../schemas/users.schemas';
 
-const retrieveUsersService = async (): Promise<TUsersListResponse> => {
+const retrieveUserService = async (userId: number): Promise<TUserResponse> => {
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
-  const users: Array<User> = await userRepository.find();
+  const user: User | null = await userRepository.findOneBy({
+    id: userId,
+  });
 
-  const usersListParsed: TUsersListResponse =
-    usersListResponseSchema.parse(users);
-  return usersListParsed;
+  const userDataParsed: TUserResponse = userResponseSchema.parse(user);
+
+  return userDataParsed;
 };
 
-export default retrieveUsersService;
+export default retrieveUserService;
