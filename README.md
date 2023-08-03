@@ -29,11 +29,17 @@ Ter instalado Node.js, postgres e DBeaver (opcional).
 
 `DATABASE_URL="postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE>"
 SECRET_KEY=""`
+
 **USERNAME** é o nome do seu usuário na configuração do postgres.
+
 **PASSWORD** é a senha definida também no postgres.
+
 **HOST** é endereço local padrão da máquina (http://127.0.0.1), no entanto, nao é preciso informá-lo no campo host, só a palavra "localhost" já é suficiente.
+
 **PORT** é a porta do postgres, por padrão é 5432.
+
 **DABATASE** é o nome do banco de dados criado no passo 2.
+
 O resultado é próximo ao do exemplo:
 `DATABASE_URL="postgres://fulano:1234@localhost:5432/banco_de_dados_criado"`
 
