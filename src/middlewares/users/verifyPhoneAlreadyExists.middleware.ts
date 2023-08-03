@@ -10,8 +10,21 @@ const verifyPhoneAlreadyExistsMiddleware = async (
   nextFunction: NextFunction
 ): Promise<void> => {
   const newUserPhone: string = request.body.phone;
-
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
+
+  if (request.method === 'PATCH') {
+    const user: User | null = await userRepository.findOne({
+      where: {
+        phone: newUserPhone,
+        id: response.locals.userId,
+      },
+    });
+
+    if (user) {
+      return nextFunction();
+    }
+  }
+
   const user: User | null = await userRepository.findOneBy({
     phone: newUserPhone,
   });
