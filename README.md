@@ -13,19 +13,21 @@ A API suporta a criação de vários telefones, emails e endereços para o mesmo
 Ter instalado Node.js, postgres e DBeaver (opcional).
 
 1) Certifique-se de ter instalado e configurado seu Postgres.
-   https://www.postgresql.org/
+https://www.postgresql.org/
 
 2) Com o postgres instalado e configurado conforme a documentação, crie um banco de dados pelo psql ou utilizando aplicação como o DBeaver.
-   `CREATE DATABASE "database_name"` (sem aspas).
 
-3) Usando o terminal, faça o clone desse repositóio em uma pasta em seu computador.
-	`git clone link-do-repositorio`
+3) Se usar o terminal com psql, utilize o comando:
+`CREATE DATABASE "database_name"` (sem aspas).
 
-4) Abra um terminal na pasta raiz do repositório clonado.
+4) Usando o terminal, faça o clone desse repositóio em uma pasta em seu computador.
+`git clone link-do-repositorio`
 
-5) Então, rode o comando `npm install`, para instalação dos pacotes necessários.
+5) Abra um terminal na pasta raiz do repositório clonado.
 
-6) Configure o arquivo .env, seguindo a estrutura do arquivo *.env.exemple*.
+6) Então, rode o comando `npm install`, para instalação dos pacotes necessários.
+
+7) Configure o arquivo .env, seguindo a estrutura do arquivo *.env.exemple*.
 
 `DATABASE_URL="postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE>"
 SECRET_KEY=""`
