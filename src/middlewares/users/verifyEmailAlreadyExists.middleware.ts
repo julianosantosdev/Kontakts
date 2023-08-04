@@ -10,8 +10,21 @@ const verifyEmailAlredyExistsMiddleware = async (
   nextFunction: NextFunction
 ): Promise<void> => {
   const newUserEmail: string = request.body.email;
-
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
+  
+  if (request.method === 'PATCH') {
+    const user: User | null = await userRepository.findOne({
+      where: {
+        email: newUserEmail,
+        id: response.locals.userId,
+      },
+    });
+
+    if (user) {
+      return nextFunction();
+    }
+  }
+
   const user: User | null = await userRepository.findOneBy({
     email: newUserEmail,
   });
