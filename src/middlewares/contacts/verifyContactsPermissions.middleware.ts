@@ -71,7 +71,7 @@ const verifyContactFieldsPermissionMiddleware = async (
       },
     });
 
-    if (entityObject?.contact.id !== userIdFromRequest) {
+    if (entityObject?.contact.user.id !== userIdFromRequest) {
       throw error;
     }
   }
@@ -90,7 +90,9 @@ const verifyContactFieldsPermissionMiddleware = async (
       },
     });
 
-    if (entityObject?.contact.id !== userIdFromRequest) {
+    console.log(entityObject)
+
+    if (entityObject?.contact.user.id !== userIdFromRequest) {
       throw error;
     }
   }
