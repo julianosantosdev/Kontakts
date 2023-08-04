@@ -472,6 +472,7 @@ RETORNO:
 
 <br>
 
+### TELEFONE
 
 - **POST** _/contacts/id/phone_ --- STATUS 204 --- Criação de um novo telefone para um determinado contato de ID.
 REQUISIÇÃO:
@@ -517,12 +518,13 @@ RESPOSTA:
 
 - **DELETE** _/contacts/id_ --- STATUS 204 --- Deleção um contato.
 REQUISIÇÃO:
-```json
-
 ```
-RESPOSTA:
-```json
+"Não possui corpo da requisição"
+```
 
+RETORNO:
+```json
+"É retornado somente o STATUS 204, confirmando que o telefone de ID foi deletado."
 ```
 
 
