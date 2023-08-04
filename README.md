@@ -39,7 +39,7 @@ https://www.postgresql.org/
 
 6) Então, rode o comando `npm install` para instalação dos pacotes necessários.
 
-7) Em seguida, configure o arquivo .env, seguindo a estrutura do arquivo *.env.exemple*.
+7) Em seguida, crie um arquivo chamado ".env" na pasta raiz do projeto, ele deve ser preenchido seguindo a estrutura do arquivo *.env.exemple*.
 
 ```properties
 DATABASE_URL="postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE>"
