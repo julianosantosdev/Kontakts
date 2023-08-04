@@ -55,19 +55,19 @@ FRONTEND_URL=""
 
 - **PORT** é a porta do postgres, por padrão é 5432.
 
-- **DABATASE** é o nome do banco de dados criado no passo 3.
+- **DATABASE** é o nome do banco de dados criado no passo 3.
+
+- **SECRET_KEY** é uma string qualquer, uma palavra-chave que será usada nos hashs das senhas dos usuários.
 
 - **FRONTEND_URL** ao rodar a aplicação front-end é necessário informar o endereço gerado do localhost, como esse endereço pode variar (como o número da porta) podem acontecer erros. Informando nessa variável não é necessário editar o código (O que é fortemente nao recomendado!)
 
 O resultado é próximo ao do exemplo abaixo:
 ```
-DATABASE_URL="postgres://fulano:1234@localhost:5432/banco_de_dados_criado"
+DATABASE_URL="postgres://fulano:1234abcd@localhost:5432/banco_de_dados_criado"
 SECRET_KEY="abcdefgh123"
 FRONTEND_URL="http://localhost:5173"
 ```
 
-
-A SECRET_KEY é uma string qualquer, uma palavra-chave que será usada nos hashs das senhas dos usuários.
 
 8) Após configurado o banco de dados, o arquivo .env e instalados os pacotes, rode o comando na raiz do projeto utilizando o terminal/powershell/cmd:
     a) `npm run typeorm migration:run -- -d src/data-source`;
