@@ -30,7 +30,7 @@ https://www.postgresql.org/
 2) Com o postgres instalado e configurado conforme a documentação, crie um banco de dados pelo psql ou utilizando aplicação como o DBeaver.
 
 3) Se usar o terminal com psql, utilize o comando:
-`CREATE DATABASE "database_name"` (sem aspas).
+`CREATE DATABASE "database_name";` (sem aspas).
 
 4) Usando o terminal, faça o clone desse repositóio em uma pasta em seu computador.
 `git clone link-do-repositorio`
