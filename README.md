@@ -47,17 +47,17 @@ SECRET_KEY=""
 FRONTEND_URL=""
 ```
 
-**USERNAME** é o nome do seu usuário na configuração do postgres.
+- **USERNAME** é o nome do seu usuário na configuração do postgres.
 
-**PASSWORD** é a senha definida também no postgres.
+- **PASSWORD** é a senha definida também no postgres.
 
-**HOST** é endereço local padrão da máquina, pois a API no localhost (http://127.0.0.1). No entanto, nao é preciso informá-lo no campo host, só a palavra "localhost" sem aspas já é suficiente.
+- **HOST** é endereço local padrão da máquina, pois a API no localhost (http://127.0.0.1). No entanto, nao é preciso informá-lo no campo host, só a palavra "localhost" sem aspas já é suficiente.
 
-**PORT** é a porta do postgres, por padrão é 5432.
+- **PORT** é a porta do postgres, por padrão é 5432.
 
-**DABATASE** é o nome do banco de dados criado no passo 3.
+- **DABATASE** é o nome do banco de dados criado no passo 3.
 
-**FRONTEND_URL** ao rodar a aplicação front-end é necessário informar o endereço gerado do localhost, como esse endereço pode variar (como o número da porta) podem acontecer erros. Informando nessa variável não é necessário editar o código (O que é fortemente nao recomendado!)
+- **FRONTEND_URL** ao rodar a aplicação front-end é necessário informar o endereço gerado do localhost, como esse endereço pode variar (como o número da porta) podem acontecer erros. Informando nessa variável não é necessário editar o código (O que é fortemente nao recomendado!)
 
 O resultado é próximo ao do exemplo abaixo:
 ```
