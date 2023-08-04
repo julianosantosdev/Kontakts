@@ -6,6 +6,7 @@ A CONTACTS-API é uma api na qual você pode guardar seus contatos e ter acesso 
 É possível criar um contato contendo: nome, endereços, telefones e emails.
 
 A API suporta a criação de vários telefones, emails e endereços para o mesmo contato.
+OBS: a feature de varios telefones, email e endereços não está disponível na aplicação front-end.
 
 ### TECNOLOGIAS USADAS:
 
