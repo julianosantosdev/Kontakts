@@ -7,7 +7,7 @@ contactRoute.post(
   '',
   index.verifyBodyRequestMiddleware(index.contactRequestSchema),
   index.verifyTokenMiddleware,
-  // index.verifyContactExistsMiddleware,
+  index.verifyContactExistsMiddleware,
   index.createContactController
 );
 contactRoute.get('', index.verifyTokenMiddleware, index.listContactsController);
