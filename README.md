@@ -400,7 +400,9 @@ RETORNO:
 
 <br>
 
-- **POST** _/contacts/34/address_ --- STATUS 201 --- Cria um novo endereço para o contato de ID informado.
+### ENDEREÇO:
+
+- **POST** _/contacts/id/address_ --- STATUS 201 --- Cria um novo endereço para o contato de ID informado.
 REQUISIÇÃO:
 ```json
 {
@@ -472,7 +474,7 @@ RETORNO:
 
 <br>
 
-### TELEFONE
+### TELEFONE:
 
 - **POST** _/contacts/id/phone_ --- STATUS 204 --- Criação de um novo telefone para um determinado contato de ID.
 REQUISIÇÃO:
@@ -516,7 +518,7 @@ RESPOSTA:
 <br>
 
 
-- **DELETE** _/contacts/id_ --- STATUS 204 --- Deleção um contato.
+- **DELETE** _/contacts/phone/id_ --- STATUS 204 --- Deleção um contato.
 REQUISIÇÃO:
 ```
 "Não possui corpo da requisição"
