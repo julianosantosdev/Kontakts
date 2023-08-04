@@ -335,14 +335,14 @@ Não é possível atualizar nome de contato que não seja do próprio usuário. 
 REQUISIÇÃO:
 ```json
 {
-	"fullName": "Novo Nome"
+	"fullName": "Fubá"
 }
 ```
 RESPOSTA:
 ```json
 {
 	"id": 100,
-	"fullName": "Novo Nome",
+	"fullName": "Fubá",
 	"createdAt": "2023-08-03"
 }
 
@@ -374,14 +374,14 @@ RESPOSTA:
 REQUISIÇÃO:
 ```json
 {
-		"email": "editado@mail.com"
+		"email": "doguin2@mail.com"
 }
 ```
 RESPOSTA:
 ```json
 {
 	"id": 45,
-	"email": "editado@mail.com",
+	"email": "doguin2@mail.com",
 	"createdAt": "2023-08-03"
 }
 ```
@@ -406,20 +406,20 @@ RETORNO:
 REQUISIÇÃO:
 ```json
 {
-		"street": "Rua 03 NOVA",
+		"street": "Rua do poste",
 		"number": "03",
-		"city": "Cidade 03",
-		"state": "PR"
+		"city": "Nova Dog",
+		"state": "DG"
 }
 ```
 RESPOSTA:
 ```json
 {
 	"id": 35,
-	"street": "Rua 03 NOVA",
+	"street": "Rua do poste",
 	"number": "03",
-	"city": "Cidade 03",
-	"state": "PR",
+	"city": "Nova Dog",
+	"state": "DG",
 	"createdAt": "2023-08-03",
 	"updatedAt": "2023-08-03",
 	"contact": {
