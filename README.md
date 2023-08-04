@@ -80,6 +80,10 @@ FRONTEND_URL="http://localhost:5173"
 
 11) Agora é possível usar a url base ***http://127.0.0.1:3000*** para fazer requisições usando o insomnia ou até mesmo o aplicação front end e disponível também para uso.
 
+Se tudo correu bem, você deve visualizar uma tela semelhante a essa:
+![image](https://github.com/julianosantosdev/contacts-api/assets/110478861/061179f2-fe6c-4f83-ab70-9784dfb29205)
+
+
 ***
 
 ## ENDPOINTS DA API:
