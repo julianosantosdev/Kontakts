@@ -41,8 +41,11 @@ https://www.postgresql.org/
 
 7) Em seguida, configure o arquivo .env, seguindo a estrutura do arquivo *.env.exemple*.
 
-`DATABASE_URL="postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE>"
-SECRET_KEY=""`
+```properties
+DATABASE_URL="postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE>"
+SECRET_KEY=""
+FRONTEND_URL=""
+```
 
 **USERNAME** é o nome do seu usuário na configuração do postgres.
 
@@ -54,8 +57,15 @@ SECRET_KEY=""`
 
 **DABATASE** é o nome do banco de dados criado no passo 3.
 
-O resultado é próximo ao do exemplo:
-`DATABASE_URL="postgres://fulano:1234@localhost:5432/banco_de_dados_criado"`
+**FRONTEND_URL** ao rodar a aplicação front-end é necessário informar o endereço gerado do localhost, como esse endereço pode variar (como o número da porta) podem acontecer erros. Informando nessa variável não é necessário editar o código (O que é fortemente nao recomendado!)
+
+O resultado é próximo ao do exemplo abaixo:
+```
+DATABASE_URL="postgres://fulano:1234@localhost:5432/banco_de_dados_criado"
+SECRET_KEY="abcdefgh123"
+FRONTEND_URL="http://localhost:5173"
+```
+
 
 A SECRET_KEY é uma string qualquer, uma palavra-chave que será usada nos hashs das senhas dos usuários.
 
